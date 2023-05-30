@@ -3,6 +3,8 @@ const { userscontroller } = require("../controllers/users.controller");
 
 const userRoutes = Router();
 
+userRoutes.use(corsMiddleware); // Aplica o middleware cors
+
 userRoutes.use(
     '/users',
     userRoutes.get('/all',userscontroller.getAllUsers),
@@ -12,5 +14,4 @@ userRoutes.use(
     userRoutes.delete('/:id',userscontroller.deleteUser),
 )
 
-
-module.exports = { userRoutes }
+module.exports = { userRoutes };
