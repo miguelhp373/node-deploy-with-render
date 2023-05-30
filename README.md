@@ -1,5 +1,5 @@
 # REST API For Tests
-Este é um exemplo de uma API local usando o Express.js. A API permite manipular uma coleção de usuários, fornecendo operações como listar todos os usuários, obter um usuário por ID, adicionar um novo usuário, atualizar um usuário existente, e excluir um usuário.
+Este é um exemplo de uma API local usando o Express.js. A API permite manipular uma coleção de usuários, fornecendo operações como listar todos os usuários, obter um usuário por ID, adicionar um novo usuário, atualizar um usuário existente e excluir um usuário.
 
 ## Tecnologias
 - ![NodeJS](https://img.shields.io/badge/node.js-6DA55F?style=for-the-badge&logo=node.js&logoColor=white)
@@ -85,7 +85,9 @@ Adiciona um novo usuário à coleção.
 
 - **URL:** `/users`
 - **Método:** `POST`
-- **Corpo da requisição:** Objeto JSON contendo os dados do usuário (nome)
+- **Corpo da requisição:** Objeto JSON contendo os dados do usuário
+
+ (nome)
 - **Resposta de sucesso:** Status 200 (OK)
 - **Exemplo de corpo da requisição:**
 
@@ -100,9 +102,7 @@ Adiciona um novo usuário à coleção.
 ```json
 {
   "id": "12345678-abcd-efgh-ijkl-1234567890ab",
-  "name": "Emily Brown
-
-",
+  "name": "Emily Brown",
   "date_created": "2023-05-25T12:34:56.789Z",
   "image_link": "https://static.vecteezy.com/system/resources/thumbnails/004/511/281/small/default-avatar-photo-placeholder-profile-picture-vector.jpg"
 }
@@ -154,4 +154,28 @@ Exclui um usuário da coleção com base no ID fornecido.
 }
 ```
 
-Este projeto está licenciado sob a Licença  GPL-3.0 License - consulte o arquivo [LICENÇA](LICENSE) para obter detalhes.
+## CORS
+
+A API foi configurada para permitir o CORS (Cross-Origin Resource Sharing). As configurações do CORS incluem permitir que todas as origens tenham acesso à API, permitir credenciais, definir os cabeçalhos permitidos e os métodos permitidos. Essas configurações são aplicadas a todas as rotas da API.
+
+```javascript
+const cors = require('cors');
+
+const corsOptions = {
+  origin: '*', // Define a origem permitida (todos os domínios)
+  credentials: true, // Permite o uso de cookies e cabeçalhos de autorização com HTTPS
+  allowedHeaders: 'Origin,Content-Type,X-Amz-Date,Authorization,X-Api-Key,X-Amz-Security-Token,locale', // Define os cabeçalhos permitidos
+  methods: 'GET,PUT,POST,PATCH,DELETE,OPTIONS' // Define os métodos permitidos
+};
+
+const corsMiddleware = cors(corsOptions);
+
+userRoutes.use(corsMiddleware); // Aplica o middleware cors
+```
+
+Isso permite que você faça solicitações para a API a partir de qualquer origem, utilizando os métodos e cabeçalhos especificados.
+
+Este projeto está
+
+ licenciado sob a Licença GPL-3.0 - consulte o arquivo [LICENÇA](LICENSE) para obter detalhes.
+```
