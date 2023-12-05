@@ -55,8 +55,7 @@ Returns a list of all users.
     "name": "Jane Smith",
     "date_created": "2023-05-25T12:34:56.789Z",
     "image_link": "https://source.unsplash.com/random/200x200/?face"
-  },
-  ...
+  }
 ]
 ```
 
@@ -103,9 +102,7 @@ Adds a new user to the collection.
   "id": "12345678-abcd-efgh-ijkl-1234567890ab",
   "name": "Emily Brown",
   "date_created": "2023-05-25T12:34:56.789Z",
-  "image_link": "https://static
-
-.vecteezy.com/system/resources/thumbnails/004/511/281/small/default-avatar-photo-placeholder-profile-picture-vector.jpg"
+  "image_link": "https://static.vecteezy.com/system/resources/thumbnails/004/511/281/small/default-avatar-photo-placeholder-profile-picture-vector.jpg"
 }
 ```
 
@@ -176,4 +173,4 @@ userRoutes.use(corsMiddleware); // Applies the cors middleware
 
 This allows you to make requests to the API from any origin, using the specified methods and headers.
 
-This project is licensed under the [GPL-3.0 License](LICENSE) - see the LICENSE file for details.
+This project is licensed under the [MIT License](LICENSE) - see the LICENSE file for details.
